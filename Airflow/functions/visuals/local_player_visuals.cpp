@@ -40,8 +40,8 @@ void c_local_visuals::thirdperson()
 		{
 			if (interfaces::input->camera_in_third_person)
 			{
-				interfaces::input->camera_in_third_person = false;
-				interfaces::input->camera_offset.z = 0.f;
+					interfaces::input->camera_in_third_person = false;
+					interfaces::input->camera_offset.z = 0.f;
 			}
 
 			if (g_cfg.misc.thirdperson_dead && g_ctx.local->observer_mode() == 4)
@@ -52,9 +52,9 @@ void c_local_visuals::thirdperson()
 	}
 	else if (interfaces::input->camera_in_third_person && thirdperson_enabled)
 	{
-		interfaces::input->camera_in_third_person = false;
-		interfaces::input->camera_offset.z = 0.f;
-		thirdperson_enabled = false;
+			interfaces::input->camera_in_third_person = false;
+			interfaces::input->camera_offset.z = 0.f;
+			thirdperson_enabled = false;
 	}
 
 	if (interfaces::input->camera_in_third_person)
@@ -90,7 +90,7 @@ void c_local_visuals::thirdperson()
 			current_fraction = tr.fraction;
 		else if (current_fraction > 0.9999f)
 			current_fraction = 1.0f;
-		current_fraction = math::interpolate(current_fraction, tr.fraction, interfaces::global_vars->interval_per_tick * 10.0f);
+		current_fraction = math::interpolate(current_fraction, tr.fraction, interfaces::global_vars->interval_per_tick *8.0f);
 		if (current_fraction <= 0.5f)
 			g_ctx.alpha_amt *= current_fraction;
 		else if (angles.x < -30.f)
