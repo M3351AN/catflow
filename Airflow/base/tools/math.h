@@ -1,6 +1,7 @@
-#pragma once
+﻿#pragma once
 #include "../../ncnn/avx_mathfun.h"
 #include <cmath>
+#include <float.h>
 #include <corecrt_math.h>
 #include <xmmintrin.h>
 #include <pmmintrin.h>

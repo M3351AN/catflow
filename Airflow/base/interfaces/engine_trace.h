@@ -1,5 +1,6 @@
-#pragma once
+﻿#pragma once
 #include "../tools/math.h"
+#include <memory>
 
 enum dispsurf_t
 {
