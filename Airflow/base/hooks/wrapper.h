@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <vector>
 #include <mutex>
 
@@ -139,7 +139,6 @@ namespace hooks
 
 				shadow_vtable = new uintptr_t[method_count + 1]();
 
-				shadow_vtable[0] = original_vtable[-1];
 				std::memcpy(&shadow_vtable[1], original_vtable, method_count * sizeof(uintptr_t));
 
 				c_protect_guard guard = c_protect_guard{ class_base, sizeof(uintptr_t), PAGE_READWRITE };

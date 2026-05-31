@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <Windows.h>
 
 class c_address;
@@ -125,8 +125,6 @@ namespace patterns
 	extern c_address send_net_msg;
 	extern c_address assign_str;
 	extern c_address process_packet;
-	extern c_address direct_reset;
-	extern c_address direct_present;
 	extern c_address direct_device;
 	extern c_address screen_matrix;
 	extern c_address local;
@@ -185,7 +183,6 @@ namespace patterns
 	extern c_address get_weapon_prefix;
 	extern c_address find_mapping;
 	extern c_address select_sequence_from_mods;
-	extern c_address vac_bypass;
 	extern c_address compensate_pred_errors;
 	extern c_address reset_latched;
 	extern c_address teleported;

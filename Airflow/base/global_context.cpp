@@ -1,4 +1,4 @@
-#include "../includes.h"
+﻿#include "../includes.h"
 
 #include "sdk.h"
 #include "global_context.h"
@@ -7,6 +7,7 @@
 
 #include "sdk/entity.h"
 #include "sdk/c_csplayerresource.h"
+#include "interfaces/convars.h"
 
 const uint32_t CBitBuffer::s_nMaskTable[33] = {
   0,

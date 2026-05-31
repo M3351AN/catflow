@@ -18,6 +18,8 @@ namespace tr::direct
 {
 	HRESULT __stdcall present(IDirect3DDevice9* device, const RECT* src_rect, const RECT* dest_rect, HWND window_override, const RGNDATA* dirty_region)
 	{
+		static auto original_present = hooker.original(&present);
+
 		if (g_ctx.uninject)
 			return original_present(device, src_rect, dest_rect, window_override, dirty_region);
 
@@ -103,6 +105,7 @@ namespace tr::direct
 
 	HRESULT __stdcall reset(IDirect3DDevice9* device, D3DPRESENT_PARAMETERS* params)
 	{
+    static auto original_reset = hooker.original(&reset);
 		if (g_ctx.uninject)
 			return original_reset(device, params);
 

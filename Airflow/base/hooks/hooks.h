@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "../../includes.h"
 #include "../../base/tools/math.h"
 
@@ -252,9 +252,6 @@ namespace hooks
 
 using present_fn = HRESULT(__stdcall*)(IDirect3DDevice9*, const RECT*, const RECT*, HWND, const RGNDATA*);
 using reset_fn = HRESULT(__stdcall*)(IDirect3DDevice9*, D3DPRESENT_PARAMETERS*);
-
-inline present_fn original_present{};
-inline reset_fn original_reset{};
 
 inline recv_var_proxy_fn original_sequence{};
 inline recv_var_proxy_fn original_simulation_time{};

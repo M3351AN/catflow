@@ -1,4 +1,4 @@
-#include "displacement.h"
+﻿#include "displacement.h"
 #include "memory.h"
 #include "../cheat_info.h"
 
@@ -41,7 +41,6 @@ namespace modules
 		studiorender = GetModuleHandleA(xor_c_s("studiorender.dll"));
 		vguimatsurface = GetModuleHandleA(xor_c_s("vguimatsurface.dll"));
 		vphysics = GetModuleHandleA(xor_c_s("vphysics.dll"));
-		gameoverlayrenderer = GetModuleHandleA(xor_c_s("gameoverlayrenderer.dll"));
 		ntdll = GetModuleHandleA(xor_c_s("ntdll.dll"));
 
 		MUTATION_END
@@ -148,8 +147,6 @@ namespace patterns
 	c_address send_net_msg{};
 	c_address assign_str{};
 	c_address process_packet{};
-	c_address direct_reset{};
-	c_address direct_present{};
 	c_address direct_device{};
 	c_address screen_matrix{};
 	c_address local{};
@@ -209,7 +206,6 @@ namespace patterns
 	c_address get_weapon_prefix{};
 	c_address find_mapping{};
 	c_address select_sequence_from_mods{};
-	c_address vac_bypass{};
 	c_address compensate_pred_errors{};
 	c_address reset_latched{};
 	c_address teleported{};
@@ -325,8 +321,6 @@ namespace patterns
 		send_net_msg = g_memory->find_pattern(modules::engine, xor_c_s("55 8B EC 83 EC 08 56 8B F1 8B 4D 04"));
 		assign_str = g_memory->find_pattern(modules::engine, xor_c_s("55 8B EC 53 8B 5D 08 56 8B F1 85 DB 74 57 8B 4E 14 83 F9 10 72 04 8B 06 EB 02"));
 		process_packet = g_memory->find_pattern(modules::engine, xor_c_s("55 8B EC 83 E4 C0 81 EC ? ? ? ? 53 56 57 8B 7D 08 8B D9"));
-		direct_present = g_memory->find_pattern(modules::gameoverlayrenderer, xor_c_s("FF 15 ? ? ? ? 8B F0 85 FF")).add(2);
-		direct_reset = g_memory->find_pattern(modules::gameoverlayrenderer, xor_c_s("C7 45 ? ? ? ? ? FF 15 ? ? ? ? 8B D8")).add(9);
 		direct_device = g_memory->find_pattern(modules::shaderapidx9, xor_c_s("A1 ? ? ? ? 50 8B 08 FF 51 0C")).add(1);
 		screen_matrix = g_memory->find_pattern(modules::client, xor_c_s("0F 10 05 ? ? ? ? 8D 85 ? ? ? ? B9"));
 		local = g_memory->find_pattern(modules::client, xor_c_s("8B 0D ? ? ? ? 83 FF FF 74 07")).add(2);
@@ -389,7 +383,6 @@ namespace patterns
 		get_weapon_prefix = g_memory->find_pattern(modules::client, xor_c_s("53 56 57 8B F9 33 F6 8B 4F ? 8B 01 FF 90 ? ? ? ? 89 47"));
 		find_mapping = g_memory->find_pattern(modules::client, xor_c_s("55 8B EC 83 E4 ? 81 EC ? ? ? ? 53 56 57 8B F9 8B 17"));
 		select_sequence_from_mods = g_memory->find_pattern(modules::client, xor_c_s("55 8B EC 83 E4 ? 83 EC ? 53 56 8B 75 ? 8B D9 57 89 5C 24 ? 8B 16"));
-		vac_bypass = g_memory->find_pattern(modules::gameoverlayrenderer, xor_c_s("80 3D ? ? ? ? ? 8B F8 74 20")).add(2);
 		start_sound_immediate = g_memory->find_pattern(modules::engine, xor_c_s("E8 ? ? ? ? 3B F8 0F 4F C7")).rel32(1);
 		process_spotted_entity_update = g_memory->find_pattern(modules::client, xor_c_s("55 8B EC 83 EC 18 8B 45 08 53 56 57 80 78 18 00"));
 		cl_fireevents = g_memory->find_pattern(modules::engine, xor_c_s("55 8B EC 83 EC 08 53 8B 1D ? ? ? ? 56 57 83 BB ? ? 00 00 06"));
