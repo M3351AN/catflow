@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <vector>
 #include <string>
 #include <map>
@@ -164,7 +164,7 @@ public:
 		return color_base[idx];
 	}
 
-	__forceinline color& base()
+	__forceinline color base()
 	{
 		color out = color(color_base[0] * 255.f, color_base[1] * 255.f, color_base[2] * 255.f, color_base[3] * 255.f);
 		return out;
